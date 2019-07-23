@@ -1,5 +1,6 @@
 package com.myapplicationdev.android.p11mydatabook;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -49,6 +50,13 @@ public class MainActivity extends AppCompatActivity {
         drawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position == 3) {
+                    Intent intent = new Intent(MainActivity.this, AboutActivity.class);
+                    startActivity(intent);
+                    return;
+                }
+
                 Fragment fragment = null;
                 if (position == 0) {
                     fragment = new BioFragment();
@@ -56,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new VaccinationFragment();
                 } else if (position == 2) {
                     fragment = new AnniversaryFragment();
-                } else if (position == 3) {
-                    fragment = new AboutFragment();
                 }
 
                 FragmentManager fm = getSupportFragmentManager();
@@ -94,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 ab.setTitle("Make a selection");
+                drawerView.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             }
         };
 
