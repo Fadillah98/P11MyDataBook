@@ -18,7 +18,7 @@ public class AboutActivity extends AppCompatActivity {
         setContentView(R.layout.activity_about);
 
         iv = findViewById(R.id.iv);
-        String imageUrl = "https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png";
+        String imageUrl = "https://upload.wikimedia.org/wikipedia/commons/8/80/Republic_Polytechnic_Logo.jpg";
         Picasso.with(this).load(imageUrl).placeholder(R.drawable.ajax_loader).error(R.drawable.error).into(iv, new Callback() {
             @Override
             public void onSuccess() {
